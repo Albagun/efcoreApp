@@ -1,0 +1,51 @@
+@model Ogrenci
+
+<h2 style="color: rgb(46, 0, 46); font-family: 'Indie Flower', cursive; font-size: 2em; font-weight: bold; text-decoration: underline;">Öğrenci Güncelle</h2>
+<hr></hr>
+
+<div class="row">
+<div class="col-8">
+
+<form asp-controller="Ogrenci" asp-action="Edit" method="post">
+     <input type="hidden" asp-for="OgrenciId">
+
+    <div class="mb-3">
+        <label asp-for="OgrenciAd" class="form-label">Ögrenci Adı</label>
+         <input asp-for="OgrenciAd" class="form-control">
+    </div>
+
+     <div class="mb-3">
+        <label asp-for="OgrenciSoyad" class="form-label">Ögrenci Soyadı</label>
+         <input asp-for="OgrenciSoyad" class="form-control">
+    </div>
+
+     <div class="mb-3">
+        <label asp-for="Eposta" class="form-label">Eposta</label>
+         <input asp-for="Eposta" class="form-control">
+    </div>
+
+     <div class="mb-3">
+        <label asp-for="Telefon" class="form-label">Telefon</label>
+         <input asp-for="Telefon" class="form-control">
+    </div>
+
+    <Button type="submit" class="btn btn-secondary">Kaydet</Button>
+
+</form>
+
+
+</div>
+<div class="col-4">
+     <h4 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 24px; color: #3f0808; margin: 0; text-shadow: 2px 2px 4px rgba(201, 0, 0, 0.2)2));">Kurslar</h4>
+     <hr>
+     <ul>  @foreach(var item in @Model.KursKayitlari)
+          {
+
+            <li style="color: rgb(0, 4, 43);">@item.Kurs.Baslik </li>
+
+          }       
+     </ul>
+</div>
+
+</div>
+

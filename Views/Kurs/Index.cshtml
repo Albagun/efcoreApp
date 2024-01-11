@@ -1,0 +1,37 @@
+@model IEnumerable<Kurs>
+
+    <table class="table table-bordered" style="background-color: rgb(197, 197, 226);">
+        <thead>
+
+
+            <h2 style="color: rgb(46, 0, 46);font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif; font-size: 2em; font-style: italic;">Kurs Listesi</h2>
+            <a href="/Kurs/Create" class="btn btn-primary" style="background-color: rgb(28, 0, 54);">Kurs Ekle</a>
+            <hr>
+            <tr>
+                
+                <th style="width: 150px;"></thstyle>@Html.DisplayNameFor(m=> m.KursId)</th>
+                <th>@Html.DisplayNameFor(m=> m.Baslik)</th>
+                <th>@Html.DisplayNameFor(m=> m.Ogretmen.AdSoyad)</th>
+                <th style="width: 150px;"></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach(var item in Model){
+
+                <tr>
+
+                    <td>@Html.DisplayFor(modelItem => item.KursId)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Baslik)</td>
+                     <td>@Html.DisplayFor(modelItem => item.Ogretmen.AdSoyad)</td>
+
+                    <td>
+                        <a asp-controller="Kurs" asp-action="Edit" asp-route-id="@item.KursId" class="btn btn-sm btn-primary">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@item.KursId" class="btn btn-sm btn-danger">Delete</a>
+                    </td>
+
+                </tr>
+
+            }
+        </tbody>
+    </table>
